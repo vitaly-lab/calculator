@@ -165,7 +165,7 @@ public class ModelNonParameterizedTest {
 
     @Test
     public void shouldThrowExceptionIfDivideByZeroPerformed() {
-        exceptionRule.expect(NumberFormatException.class);
+        exceptionRule.expect( ArithmeticException.class);
         exceptionRule.expectMessage("Argument 'divisor' is 0");
         model.division(5, 0);
     }
