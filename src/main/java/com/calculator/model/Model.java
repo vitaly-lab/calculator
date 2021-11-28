@@ -15,6 +15,9 @@ public class Model {
     }
 
     public double division(double a, double b) {
+        if (b == 0) {
+            throw new NumberFormatException("Argument 'divisor' is 0");
+        }
         return a / b;
     }
 }

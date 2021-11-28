@@ -68,25 +68,25 @@ public class ModelTestFieldInjection {
     }
 
     @Test
-    public void sum() {
+    public void checkSumOperation() {
         Assume.assumeTrue(type == Type.SUM);
         assertThat(model.sum(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void subtraction() {
+    public void checkSubtractionOperation() {
         Assume.assumeTrue(type == Type.SUBTRACTION);
         assertThat(model.subtraction(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void multiplication() {
+    public void checkMultiplicationOperation() {
         Assume.assumeTrue(type == Type.MULTIPLICATION);
         assertThat(model.multiplication(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void division() {
+    public void checkDivisionOperation() {
         Assume.assumeTrue(type == Type.DIVISION);
         assertThat(model.division(numberA, numberB), is(expected));
     }

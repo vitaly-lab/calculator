@@ -65,28 +65,28 @@ public class ModelTestConstructor {
     }
 
     @Test
-    public void sum() {
+    public void checkSumOperation() {
         Model model = new Model();
         Assume.assumeTrue(type == Type.SUM);
         assertThat(model.sum(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void subtraction() {
+    public void checkSubtractionOperation() {
         Model model = new Model();
         Assume.assumeTrue(type == Type.SUBTRACTION);
         assertThat(model.subtraction(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void multiplication() {
+    public void checkMultiplicationOperation() {
         Model model = new Model();
         Assume.assumeTrue(type == Type.MULTIPLICATION);
         assertThat(model.multiplication(numberA, numberB), is((int) expected));
     }
 
     @Test
-    public void division() {
+    public void checkDivisionOperation() {
         Model model = new Model();
         Assume.assumeTrue(type == Type.DIVISION);
         assertThat(model.division(numberA, numberB), is(expected));

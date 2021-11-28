@@ -1,11 +1,13 @@
 package com.calculator.model;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ModelNonParamTest {
+public class ModelNonParameterizedTest {
 
     private Model model;
 
@@ -13,6 +15,9 @@ public class ModelNonParamTest {
     public void init() {
         model = new Model();
     }
+
+    @Rule
+    public ExpectedException exceptionRule = ExpectedException.none();
 
     @Test
     public void shouldCorrectlyAddTwoSingleDigitNumbers() {
@@ -123,7 +128,7 @@ public class ModelNonParamTest {
     }
 
     @Test
-    public void shouldCorrectlyDevideTwoSingleDigitNumbers() {
+    public void shouldCorrectlyDivideTwoSingleDigitNumbers() {
         int operator1 = 6798;
         int operator2 = 1045;
         double expectedResults = 6.5053;
@@ -132,7 +137,7 @@ public class ModelNonParamTest {
     }
 
     @Test
-    public void shouldCorrectlyDevideTwoLargeNumbers() {
+    public void shouldCorrectlyDivideTwoLargeNumbers() {
         int operator1 = 6006;
         int operator2 = 2790;
         double expectedResults = 2.1527;
@@ -141,7 +146,7 @@ public class ModelNonParamTest {
     }
 
     @Test
-    public void shouldCorrectlyDevideTwoNegativeNumbers() {
+    public void shouldCorrectlyDivideTwoNegativeNumbers() {
         int operator1 = -784;
         int operator2 = 98;
         double expectedResults = -8.0;
@@ -150,11 +155,18 @@ public class ModelNonParamTest {
     }
 
     @Test
-    public void shouldCorrectlyDevideToZero() {
+    public void shouldCorrectlyDivideToZero() {
         int operator1 = 0;
         int operator2 = 670;
         double expectedResults = 0;
         double actualResult = model.division(operator1, operator2);
         assertEquals(expectedResults, actualResult, 0.0001);
+    }
+
+    @Test
+    public void shouldThrowExceptionIfDivideByZeroPerformed() {
+        exceptionRule.expect(NumberFormatException.class);
+        exceptionRule.expectMessage("Argument 'divisor' is 0");
+        model.division(5, 0);
     }
 }
